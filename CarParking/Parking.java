@@ -52,10 +52,10 @@ class Parking {
     }
 
     public String toString() {
-        String space = "%-18s";
+        String carSpace = "%-18s";
         StringBuilder parkingMap = new StringBuilder("---------------------------------------\n");
         for (int i = 0; i < 3; i++) {
-            parkingMap.append(String.format("|" + space + "|" + space + "|\n",
+            parkingMap.append(String.format("|"+carSpace+"|"+carSpace+"|\n",
                     parkingPlaces[i * 2], parkingPlaces[i * 2 + 1]));
             parkingMap.append("---------------------------------------\n");
         }

@@ -10,7 +10,7 @@ class Car {
     }
 
     public String getModelAndId() {
-        return model + " [" + id + "]";
+        return model+" ["+id+ "]";
     }
 
     public void setModelAndId(String model, String id) {
