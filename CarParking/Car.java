@@ -1,7 +1,7 @@
 package CarParking;
 
 
-public class Car {
+class Car {
     private String model;
     private String id;
 
@@ -14,18 +14,15 @@ public class Car {
     }
 
     public void setModelAndId(String model, String id) {
-        if (model.equals("BMW") || model.equals("Mercedes") || model.equals("Fiat")){
+        if (model.equals("BMW") || model.equals("Mercedes") || model.equals("Fiat")) {
             this.model = model;
             this.id = id;
         } else {
             System.err.println("Can't park this car model");
         }
-        
     }
 
-    
-    
-    public String toString(){
+    public String toString() {
         return getModelAndId();
     }
 }

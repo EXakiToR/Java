@@ -1,59 +1,64 @@
 package CarParking;
 
 
-public class Parking{
-    private byte freePlaces; 
-    private Car place1A;
-    private Car place1B;
-    private Car place1C;
-    private Car place2A;
-    private Car place2B;
-    private Car place2C;
+class Parking {
+    private byte freePlaces;
+    private Car[] parkingPlaces;
 
     public Parking(byte freePlaces) {
         this.freePlaces = freePlaces;
+        this.parkingPlaces = new Car[freePlaces];
     }
 
-    public void showFreePlaces(){
+    public void showFreePlaces() {
         System.out.println(freePlaces);
     }
 
-    public void parkCar(Car c, String place){
-        if(freePlaces != 0){
-            if(place.equals("1A") && !place.equals(null)){
-                this.place1A = c;
-            } else if (place.equals("1B") && !place.equals(null)) {
-                this.place1B = c;
-            } else if (place.equals("1C") && !place.equals(null)) {
-                this.place1C = c;
-            } else if (place.equals("2A") && !place.equals(null)) {
-                this.place2A = c;
-            } else if (place.equals("2B") && !place.equals(null)) {
-                this.place2B = c;
-            } else if (place.equals("2C") && !place.equals(null)) {
-                this.place2C = c;
+    public void parkCar(Car car, String place) {
+        if (freePlaces != 0) {
+            int placeIndex = getPlaceIndex(place);
+            if (placeIndex != -1) {
+                if (parkingPlaces[placeIndex] == null) {
+                    parkingPlaces[placeIndex] = car;
+                    freePlaces--;
+                } else {
+                    System.out.println("Place "+place+" is already occupied.");
+                }
+            } else {
+                System.out.println("Invalid place: "+place);
             }
-            this.freePlaces--;
         } else {
-            System.out.println("No free places");
+            System.out.println("No free places.");
         }
     }
-    
-    public String toString(){
-        String space = "-18s";
-        String parkingMap = String.format(
-        "---------------------------------------\n"+
-        "|%1$"+space+"|%2$"+space+"|\n"+
-        "---------------------------------------\n"+
-        "---------------------------------------\n"+
-        "|%3$"+space+"|%4$"+space+"|\n"+
-        "---------------------------------------\n"+
-        "---------------------------------------\n"+
-        "|%5$"+space+"|%6$"+space+"|\n"+
-        "---------------------------------------",
-         place1A, place2A,
-         place1B, place2B,
-         place1C, place2C);
-        return parkingMap;
+
+    private int getPlaceIndex(String place) {
+        switch (place) {
+            case "1A":
+                return 0;
+            case "2A":
+                return 1;
+            case "1B":
+                return 2;
+            case "2B":
+                return 3;
+            case "1C":
+                return 4;
+            case "2C":
+                return 5;
+            default:
+                return -1;
+        }
+    }
+
+    public String toString() {
+        String space = "%-18s";
+        StringBuilder parkingMap = new StringBuilder("---------------------------------------\n");
+        for (int i = 0; i < 3; i++) {
+            parkingMap.append(String.format("|" + space + "|" + space + "|\n",
+                    parkingPlaces[i * 2], parkingPlaces[i * 2 + 1]));
+            parkingMap.append("---------------------------------------\n");
+        }
+        return parkingMap.toString();
     }
 }
