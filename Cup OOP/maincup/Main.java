@@ -11,16 +11,16 @@ public class Main {
         Cup cupB = new Cup("Water", (short)500);
         
         System.out.println("CupA - "+cupA+", CupB - "+cupB );
-        cupA.setVolumeLiquid((short)(cupA.getVolumeLiquid() - 50));
-        cupB.setVolumeLiquid((short)(cupB.getVolumeLiquid() + 50));
+        cupA.setVolume((short)(cupA.getVolume() - 50));
+        cupB.setVolume((short)(cupB.getVolume() + 50));
         System.out.println("CupA - "+cupA+", CupB - "+cupB );
 
         //part 2 
-        Cup smallCup = new SmallCup("Tea", (short)200);
-        Cup bigCup = new BigCup("water", (short)200);
+        SmallCup smallCup = new SmallCup("Tea", (short)200);
+        BigCup bigCup = new BigCup("water", (short)200);
 
         System.out.println("A small cup - "+smallCup);
-        bigCup.setVolumeLiquid((short)(cupB.getVolumeLiquid() + bigCup.getVolumeLiquid()));
+        bigCup.setVolume((short)(cupB.getVolume() + bigCup.getVolume()));
         System.out.println("A big cup now contains "+bigCup);
         
     }

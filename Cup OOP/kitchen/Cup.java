@@ -2,14 +2,18 @@ package kitchen;
 
 public class Cup {
     private String nameLiquid;
-    private short volumeLiquid;
+    private short cupVolume;
     
     public Cup() {
     }
-
-    public Cup(String nameLiquid, short volumeLiquid) {
+    
+    public Cup(String nameLiquid) {
         setNameLiquid(nameLiquid);
-        setVolumeLiquid(volumeLiquid);
+    }
+
+    public Cup(String nameLiquid, short cupVolume) {
+        setNameLiquid(nameLiquid);
+        setVolume(cupVolume);
     }
 
     public String getNameLiquid() {
@@ -26,20 +30,21 @@ public class Cup {
         
     }
 
-    public short getVolumeLiquid() {
-        return volumeLiquid;
+    public short getVolume() {
+        return cupVolume;
     }
-    public void setVolumeLiquid(short volumeLiquid) {
-        this.volumeLiquid = volumeLiquid;
+    public void setVolume(short cupVolume) {
+        
         //part 1
-        // if (volumeLiquid > 0 && volumeLiquid <= 600){
-            
-        // } else {
-        //     System.err.println("Volume must be between 0..600");
-        // }
+        if (cupVolume > 0 && cupVolume <= 600){
+            this.cupVolume = cupVolume;
+        } else {
+            System.err.println("Volume must be between 0..600");
+        }
         
     }
+    
     public String toString(){
-        return ""+volumeLiquid+"ml of "+getNameLiquid();
+        return ""+cupVolume+"ml of "+getNameLiquid();
     }
 }
