@@ -39,7 +39,7 @@ public class Cup {
         if (cupVolume > 0 && cupVolume <= 600){
             this.cupVolume = cupVolume;
         } else {
-            System.err.println("Volume must be between 0..600");
+            System.err.println("Cup volume must be between 0..600");
         }
         
     }
