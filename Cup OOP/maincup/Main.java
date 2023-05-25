@@ -16,8 +16,8 @@ public class Main {
         System.out.println("CupA - "+cupA+", CupB - "+cupB );
 
         //part 2 
-        SmallCup smallCup = new SmallCup("Tea", (short)200);
-        BigCup bigCup = new BigCup("water", (short)200);
+        Cup smallCup = new SmallCup("Tea", (short)200);
+        Cup bigCup = new BigCup("water", (short)2000);
 
         System.out.println("A small cup - "+smallCup);
         bigCup.setVolume((short)(cupB.getVolume() + bigCup.getVolume()));
