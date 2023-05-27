@@ -2,13 +2,12 @@ package kitchen;
 
 public class Cup {
     private String nameLiquid;
-    private short cupVolume, maxVolume;
+    private short cupVolume;
 
     public Cup() {
     }
 
     public Cup(String nameLiquid, short cupVolume) {
-        setMaxVolume();
         setNameLiquid(nameLiquid);
         setVolume(cupVolume);
         
@@ -29,17 +28,7 @@ public class Cup {
     }
 
     public short getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume() {
-        if (this instanceof SmallCup) {
-            this.maxVolume = 250;
-        } else if (this instanceof BigCup) {
-            this.maxVolume = 1000;
-        } else {
-            this.maxVolume = 600;
-        }
+        return 600;
     }
 
     public short getVolume() {
@@ -48,10 +37,10 @@ public class Cup {
     public void setVolume(short cupVolume) {
         
         //part 1
-        if (cupVolume > 0 && cupVolume <= maxVolume){
+        if (cupVolume > 0 && cupVolume <= getMaxVolume()){
             this.cupVolume = cupVolume;
         } else {
-            System.err.println(this.getClass().getSimpleName()+" volume must be between 0.."+maxVolume);
+            System.err.println(this.getClass().getSimpleName()+" volume must be between 0.."+getMaxVolume());
         }
         
     }

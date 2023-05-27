@@ -9,12 +9,15 @@ public class BigCup extends Cup{
     
     @Override
     public void setVolume(short cupVolume) {
-        if (cupVolume > 0 && cupVolume <= super.getMaxVolume()){
+        if (cupVolume > 0 && cupVolume <= getMaxVolume()){
             super.setVolume(cupVolume);
         } else {
-            System.err.println(this.getClass().getSimpleName()+" volume must be between 0.."+super.getMaxVolume());
+            System.err.println(this.getClass().getSimpleName()+" volume must be between 0.."+getMaxVolume());
         }
         
     }
-
+    @Override
+    public short getMaxVolume() {
+        return 1000;
+    }
 }
