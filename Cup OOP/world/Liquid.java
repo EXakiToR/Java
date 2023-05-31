@@ -15,25 +15,13 @@ public class Liquid {
     }
 
     public boolean isCold(){
-        if(temperature <= 18){
-            return true;
-        } else {
-            return false;
-        }
+        return temperature <= 18;
     }
     public boolean isWarm(){
-        if(temperature > 18 && temperature <= 36){
-            return true;
-        } else {
-            return false;
-        }
+        return temperature > 18 && temperature <= 36;
     }
     public boolean isHot(){
-        if(temperature > 36){
-            return true;
-        } else {
-            return false;
-        }
+        return temperature > 36;
     }
     public String getName() {
         return name;

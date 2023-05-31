@@ -1,51 +1,51 @@
 package kitchen;
 
+import world.Liquid;
+
 public class Cup {
-    private String nameLiquid;
-    private short cupVolume;
+    private Liquid liquid;
+    private static final int MAX_VOLUME = 600;
 
     public Cup() {
     }
 
-    public Cup(String nameLiquid, short cupVolume) {
-        setNameLiquid(nameLiquid);
-        setVolume(cupVolume);
+    public Cup(Liquid liquid) {
+        this.liquid = liquid;
+        setNameLiquid(liquid);
+        setVolume(liquid);
         
     }
 
     public String getNameLiquid() {
-        return nameLiquid;
+        return liquid.getName();
     }
 
-    public void setNameLiquid(String nameLiquid) {
-        if(nameLiquid.equalsIgnoreCase("water") || nameLiquid.equalsIgnoreCase("milk") ||
-        nameLiquid.equalsIgnoreCase("tea")){
-            this.nameLiquid = nameLiquid.toLowerCase();
+    public void setNameLiquid(Liquid liquid) {
+        if(liquid.getName().equalsIgnoreCase("water") || liquid.getName().equalsIgnoreCase("milk") ||
+        liquid.getName().equalsIgnoreCase("tea")){
+            this.liquid.setName(liquid.getName());
         } else {
             System.err.println("Unsuported liquid type.");
         }
         
     }
 
-    public short getMaxVolume() {
-        return 600;
+    public int getMaxVolume() {
+        return MAX_VOLUME;
     }
 
-    public short getVolume() {
-        return cupVolume;
+    public int getVolume() {
+        return liquid.getVolume();
     }
-    public void setVolume(short cupVolume) {
-        
-        //part 1
-        if (cupVolume > 0 && cupVolume <= getMaxVolume()){
-            this.cupVolume = cupVolume;
+    public void setVolume(Liquid liquid) {
+        if (liquid.getVolume() > 0 && liquid.getVolume() <= getMaxVolume()) {
+            this.liquid.setVolume(liquid.getVolume());
         } else {
             System.err.println(this.getClass().getSimpleName()+" volume must be between 0.."+getMaxVolume());
         }
-        
     }
     
     public String toString(){
-        return ""+cupVolume+"ml of "+nameLiquid;
+        return liquid.getVolume()+"ml of "+liquid.getName();
     }
 }
