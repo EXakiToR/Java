@@ -8,7 +8,7 @@ public class StudentsApp {
         StudentDataBase.students = new Student[1];
 
         try (Scanner read = new Scanner(System.in)) {
-            for (int i = 0; i < StudentDataBase.students.length; i++) {
+            for (int i = 0; i < StudentDataBase.students.length+1; i++) {
                 System.out.printf("Input %d student's data: \n", i + 1);
                 try {
                     StudentDataBase.addStudent(read.nextLine(), read.nextLine(), read.nextInt());
@@ -17,9 +17,12 @@ public class StudentsApp {
                     i--;
                     read.nextLine();
                     continue;
+                } catch (IndexOutOfBoundsException e){
+                    System.err.printf("No more students available to enter. (max %d)\n", StudentDataBase.students.length);
                 }
                 read.nextLine();
             }
+            
         } 
         StudentDataBase.printAllStudents();
         
@@ -30,14 +33,10 @@ class StudentDataBase {
     public static Student[] students;
     public static int lastIndex = 0;
     
-    public static void addStudent(String fullName, String groupName, int generalGrade) throws InputMismatchException{
-        if (lastIndex < students.length) {
-            
+    public static void addStudent(String fullName, String groupName, int generalGrade) throws InputMismatchException, IndexOutOfBoundsException{
+
             students[lastIndex] = new Student(fullName, groupName, generalGrade);
             lastIndex++;
-        } else {
-            System.err.printf("Can't accept more than %d students.\n", students.length);
-        }
     }
     public static void printAllStudents(){
         for (int i = 0; i < students.length; i++) {
