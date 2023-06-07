@@ -2,7 +2,7 @@ package singlefiles;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-/*Be wise with your input! (the code cannot properly handle the Inputmismatch exception,
+/*Be wise with your input! (the code cannot properly handle the InputMismatch exception,
 but otherwise it works) */
 
 public class StudentsApp {
