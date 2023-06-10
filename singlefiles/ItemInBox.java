@@ -1,10 +1,10 @@
-package singlefiles;
+
 
 public class ItemInBox {
     public static void main(String[] args) {
         Box firstBox = new Box(new Book(100, 1999, "Lorem ipsum", "Dolor sit", "Tempor incididunt")),
                 secondBox = new Box(new Journal(5, "Adipiscing elit", "Magna aliqua", "Quis nostrud"));
-        System.out.printf("1. %s,\n 2. %s", firstBox, secondBox);
+        System.out.printf("1. %s,\n2. %s", firstBox, secondBox);
     }
 }
 
@@ -31,7 +31,7 @@ class Box {
 
     @Override
     public String toString() {
-        return "Box [content=" + content.toString() + "]";
+        return "Box [content=" + content + "]";
     }
 
     /*
