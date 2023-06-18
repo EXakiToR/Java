@@ -46,6 +46,8 @@ class DataColection{
         for (int i = 0, j = 0; i < data.length; i++) {
             if (i != index) {
                 newData[j++] = data[i];
+            } else {
+                System.out.println(data[i] + " was deleted.");
             }
         } 
         data = newData;
