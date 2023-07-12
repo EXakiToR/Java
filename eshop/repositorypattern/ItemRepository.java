@@ -20,9 +20,16 @@ public abstract class ItemRepository {
 
     public void addItem(Item<Product> item) {
         if (item == null) {
-            throw new IllegalArgumentException("Cannot add null item!");
+            throw new NullPointerException("Cannot add null item!");
         }
         items.add(item);
+    }
+
+    public void removeItem(Item<Product> item) {
+        if (item == null) {
+            throw new NullPointerException("Cannot remove null item!");
+        }
+        items.remove(item);
     }
 
     public Item<Product> getItemById(Integer id) {
@@ -43,27 +50,26 @@ public abstract class ItemRepository {
         throw new IllegalArgumentException("Item with ID " + id + " not found.");
     }
 
-    public void removeItem(Item<Product> item) {
-        items.remove(item);
-    }
+    public Integer increaseQuantity(Item<Product> item, Integer quantity) {
 
-    public void increaseQuantity(Item<Product> item, Integer quantity) {
-        if (item == null) {
-            throw new IllegalArgumentException("Cannot increase quantity of null item!");
-        }
         item.setQuantity(item.getQuantity() + quantity);
         System.out.println(getItemObjectName(item) + "'s quantity was increased by " + quantity);
+        return quantity;
     }
 
-    public void decreaseQuantity(Item<Product> item, Integer quantity) {
-        if (item == null) {
-            throw new IllegalArgumentException("Cannot decrease quantity of null item!");
-        }
+    public Integer decreaseQuantity(Item<Product> item, Integer quantity) {
+
+        int validQuantity = item.getQuantity() - 1;
         if (validDifference(item, quantity)) {
-            item.setQuantity(item.getQuantity() - quantity);
-            System.out.println(getItemObjectName(item) + "'s quantity was decreased by " + quantity);
-            return;
+            validQuantity = quantity;
+            item.setQuantity(item.getQuantity() - validQuantity);
+            System.out.println(getItemObjectName(item) + "'s quantity was decreased by " + validQuantity);
+        } else {
+            item.setQuantity(1);
+            System.out.println(getItemObjectName(item) + "'s cart quantity was set to 1. Can't decrease more than "
+                    + validQuantity);
         }
+        return validQuantity;
     }
 
     protected String getItemObjectName(Item<Product> item) {
@@ -71,16 +77,7 @@ public abstract class ItemRepository {
     }
 
     protected boolean validDifference(Item<Product> item, Integer quantity) {
-        return item.getQuantity() - quantity > 0 ;
-    }
-
-    private int indexByItem(Item<Product> item) {
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).equals(item)) {
-                return i;
-            }
-        }
-        return -1;
+        return item.getQuantity() - quantity > 0;
     }
 
     private int indexById(Integer id) {

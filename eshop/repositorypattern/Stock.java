@@ -1,6 +1,6 @@
 package eshop.repositorypattern;
 
-public class Stock extends ItemRepository {
+public final class Stock extends ItemRepository {
 
     
 }
