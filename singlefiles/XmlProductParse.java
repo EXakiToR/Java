@@ -25,17 +25,22 @@ public class XmlProductParse {
 
         Element root = document.getDocumentElement();
         NodeList nodeProducts = root.getElementsByTagName("product");
-        Element firstProduct = (Element) nodeProducts.item(0);
-        NodeList nodeFirstProductPrice = firstProduct.getElementsByTagName("price");
-        Element firstProductPrice = (Element) nodeFirstProductPrice.item(0);
+        
+        for (int i = 0; i < nodeProducts.getLength(); i++) {
+            Element product = (Element) nodeProducts.item(i);
+            Element productPrice = (Element) product.getElementsByTagName("price").item(0);
 
-        products.add(new ProductFromXml(getTextFromItem(firstProduct, "name", 0),
-                new Price(Integer.parseInt(getTextFromItem(firstProductPrice, "amount", 0)),
-                        getTextFromItem(firstProductPrice, "currency", 0))));
+            products.add(new ProductFromXml(getTextFromElement(product, "name"),
+                    new Price(Integer.parseInt(getTextFromElement(productPrice, "amount")),
+                            getTextFromElement(productPrice, "currency"))));
+        }
         System.out.println(products);
     }
 
-    public static String getTextFromItem(Element element, String tagName, int index) {
+    public static String getTextFromElement(Element element, String tagName) {
+        return element.getElementsByTagName(tagName).item(0).getTextContent().trim();
+    }
+    public static String getTextFromElement(Element element, String tagName, int index) {
         return element.getElementsByTagName(tagName).item(index).getTextContent().trim();
     }
 }
@@ -99,6 +104,6 @@ class ProductFromXml {
 
     @Override
     public String toString() {
-        return "Product [productName=" + name + ", productPrice=" + price + "]";
+        return "Product [productName=" + name + ", productPrice=" + price + "]\n";
     }
 }
