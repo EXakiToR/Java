@@ -36,7 +36,7 @@ public class Currency {
     }
     @Override
     public String toString() {
-        return "Currency [name=" + name + ", charCode=" + charCode + ", numCode=" + numCode + ", ratio=" + ratio + "]";
+        return "Currency [name=" + name + ", charCode=" + charCode + ", numCode=" + numCode + ", ratio=" + ratio + "]\n";
     }
     
 
