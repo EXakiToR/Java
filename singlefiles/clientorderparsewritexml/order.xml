@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<order>
+    <client>
+        <name>asdsad</name>
+        <phone>asdsadadssad</phone>
+    </client>
+    <items>
+        <item>
+            <product_id>1</product_id>
+            <product_name>Pizza</product_name>
+            <quantity>2</quantity>
+        </item>
+    </items>
+    <total>
+        <amount>200</amount>
+        <currency>MDL</currency>
+    </total>
+</order>
