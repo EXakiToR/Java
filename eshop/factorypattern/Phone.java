@@ -1,6 +1,6 @@
 package eshop.factorypattern;
 
-public class Phone extends eshop.factorypattern.Product implements ProductInterface {
+public class Phone extends Product implements ProductInterface {
     private float diagonal;
 
     public float getDiagonal() {

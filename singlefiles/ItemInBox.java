@@ -1,9 +1,11 @@
+package singlefiles;
 
 public class ItemInBox {
     public static void main(String[] args) {
         Box firstBox = new Box(new Book(100, 1999, "Lorem ipsum", "Dolor sit", "Tempor incididunt")),
                 secondBox = new Box(new Journal(5, "Adipiscing elit", "Magna aliqua", "Quis nostrud"));
-        System.out.printf("1. %s,\n2. %s", firstBox, secondBox);
+
+        System.out.printf("1. %s,\n 2. %s", firstBox, secondBox);
     }
 }
 
@@ -38,9 +40,6 @@ class Box {
      * 1ea7bcd0ec16691197d75d37239ffd6f0305e392/programming/java/oop/encapsulation/
      * blox.DYN.ru.md?plain=1#LL36C1-L36C1
      * No, it can't directly access it, because anotherBook.title is private.
-     * 4. d - yes, it is possible
-     *    e - no, it doesn't change, because although  books have identical properties,
-     *        they are not identical objects.
      */
 }
 

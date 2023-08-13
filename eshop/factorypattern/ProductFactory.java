@@ -1,9 +1,9 @@
 package eshop.factorypattern;
 
-//Must add more products defined in code, it becames too big
+//Must add more products defined in code, it becomes too big
 public class ProductFactory {
-    private static eshop.factorypattern.Product createBaseProduct(String type, String name, int price) {
-        eshop.factorypattern.Product product = null;
+    private static Product createBaseProduct(String type, String name, int price) {
+        Product product = null;
         String formattedType = type.toLowerCase();
         switch (formattedType) {
             case "phone":
@@ -28,14 +28,14 @@ public class ProductFactory {
         return product;
     }
 
-    public static eshop.factorypattern.Product createProduct(String type, String name, int price, float diagonal) {
-        eshop.factorypattern.Product product = createBaseProduct(type, name, price);
+    public static Product createProduct(String type, String name, int price, float diagonal) {
+        Product product = createBaseProduct(type, name, price);
         ((Phone) product).setDiagonal(diagonal);
         return product;
     }
 
-    public static eshop.factorypattern.Product createProduct(String type, String name, int price, String stringValue) {
-        eshop.factorypattern.Product product = createBaseProduct(type, name, price);
+    public static Product createProduct(String type, String name, int price, String stringValue) {
+        Product product = createBaseProduct(type, name, price);
         String formattedType = type.toLowerCase();
         switch (formattedType) {
             case "printer":

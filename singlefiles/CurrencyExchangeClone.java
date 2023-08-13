@@ -1,3 +1,5 @@
+package singlefiles;
+
 public class CurrencyExchangeClone {
     public static void main(String[] args) {
         Currency todaysCurrency = new Currency("EUR", "MDL", 17.50f, "2020-01-01");

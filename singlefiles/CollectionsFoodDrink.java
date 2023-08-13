@@ -3,6 +3,7 @@ package singlefiles;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class CollectionsFoodDrink {
     public static void main(String[] args) {
         List<Product> products = new LinkedList<>();
@@ -14,7 +15,7 @@ public class CollectionsFoodDrink {
     }
 }
 
-class Product {
+abstract class Product {
     private String name;
     private Integer price;
 

@@ -2,7 +2,7 @@ package singlefiles;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-/*Be wise with your input! (the code cannot properly handle the InputMismatch exception,
+/*Be wise with your input! (the code cannot properly handle the Inputmismatch exception,
 but otherwise it works) */
 
 public class StudentsApp {
@@ -80,6 +80,7 @@ class CLI{
             "\t8. Exit\n");
         }
         System.out.print(">> ");
+        @SuppressWarnings("resource")
         Scanner read = new Scanner(System.in);
         return read.nextInt();
         

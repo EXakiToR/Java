@@ -1,0 +1,17 @@
+<?xml version = "1.0"?>
+<products>
+    <product>
+        <name>Scallops</name>
+        <price>
+            <amount>6 </amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Risotto</name>
+        <price>
+            <amount>5</amount>
+            <currency>EUR </currency>
+        </price>
+    </product>
+</products>

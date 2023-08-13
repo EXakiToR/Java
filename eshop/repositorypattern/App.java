@@ -17,7 +17,7 @@ public class App {
 
             cart.addItem(crowbar);
             cart.increaseQuantity(crowbar, 4);
-            cart.decreaseQuantity(crowbar, 2);
+            cart.decreaseQuantity(crowbar, 20);
         } catch (NullPointerException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<products>
+    <product>
+        <name>Chicken Wings</name>
+        <price>
+            <amount>3</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Seafood Paella</name>
+        <price>
+            <amount>6</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Katsu Curry</name>
+        <price>
+            <amount>4</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Kebab</name>
+        <price>
+            <amount>6</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Chicken Milanese</name>
+        <price>
+            <amount>7</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Sushi</name>
+        <price>
+            <amount>7</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Ricotta Stuffed Ravioli</name>
+        <price>
+            <amount>6</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Pork Sausage Roll</name>
+        <price>
+            <amount>7</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Chicken Milanese</name>
+        <price>
+            <amount>7</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+    <product>
+        <name>Pork Belly Buns</name>
+        <price>
+            <amount>7</amount>
+            <currency>EUR</currency>
+        </price>
+    </product>
+</products>

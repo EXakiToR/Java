@@ -1,6 +1,6 @@
 package eshop.factorypattern;
 
-public class Laptop extends eshop.factorypattern.Product implements ProductInterface {
+public class Laptop extends Product implements ProductInterface {
     private String CPU;
 
     public String getCPU() {

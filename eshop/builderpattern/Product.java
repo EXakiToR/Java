@@ -21,7 +21,7 @@ public class Product {
         ProductBuilder(String name, Integer price) {
             this.name = name;
             this.price = price;
-            
+
         }
 
         public ProductBuilder withDimensions(PhysicalDimension lenght, PhysicalDimension width,

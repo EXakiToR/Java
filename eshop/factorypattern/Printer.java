@@ -1,6 +1,6 @@
 package eshop.factorypattern;
 
-public class Printer extends eshop.factorypattern.Product implements ProductInterface {
+public class Printer extends Product implements ProductInterface {
     private String format;
 
     public String getFormat() {

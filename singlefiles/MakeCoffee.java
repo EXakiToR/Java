@@ -1,3 +1,4 @@
+package singlefiles;
 public class MakeCoffee {
     public static void main(String[] args) {
         Container cup = new Cup();
