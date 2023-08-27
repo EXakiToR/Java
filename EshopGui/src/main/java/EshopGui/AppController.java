@@ -30,7 +30,6 @@ public class AppController {
     private List<Product> products;
     private Label name, description, priceAmountAndCurrency;
     private ImageView imageView;
-    private boolean startResetting = false;
     public void setProductRepository(ProductRepository productRepository) {
         this.productRepository = productRepository;
         products = productRepository.all();
@@ -66,6 +65,5 @@ public class AppController {
             container.getChildren().add(imageView);
             content.getChildren().add(container);
         }
-        startResetting = true;
     }
 }
