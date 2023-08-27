@@ -1,0 +1,32 @@
+<products>
+  <product>
+    <id>1</id>
+    <name>Pizza</name>
+    <description>Neapolitana</description>
+    <price>
+        <amount>5</amount>
+        <currency>USD</currency>
+    </price>
+    <available>5</available>
+  </product>
+  <product>
+    <id>2</id>
+    <name>Soup</name>
+    <description>Borsch</description>
+    <price>
+        <amount>3</amount>
+        <currency>USD</currency>
+    </price>
+    <available>3</available>
+  </product>
+  <product>
+    <id>3</id>
+    <name>Salad</name>
+    <description>Greek</description>
+    <price>
+        <amount>2.5</amount>
+        <currency>USD</currency>
+    </price>
+    <available>2</available>
+  </product>
+</products>

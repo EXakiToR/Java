@@ -11,6 +11,10 @@ public class Currency {
         this.numCode = numCode;
         this.ratio = ratio;
     }
+    public Currency(String charCode, float ratio) {
+        this.charCode = charCode;
+        this.ratio = ratio;
+    }
     public String getName() {
         return name;
     }

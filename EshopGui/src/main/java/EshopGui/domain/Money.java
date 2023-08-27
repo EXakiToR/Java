@@ -3,12 +3,16 @@ package EshopGui.domain;
 public class Money {
     private int amount;
     private Currency currency;
-
+    /**
+     * Amount in cents
+     */
     public Money(int amount, Currency currency) {
         this.amount = amount;
         this.currency = currency;
     }
-
+    /**
+     * Regular amount
+     */
     public Money(float amount, Currency currency) {
         this.amount = (int)(amount * 100);
         this.currency = currency;

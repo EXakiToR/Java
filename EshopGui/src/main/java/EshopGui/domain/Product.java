@@ -1,6 +1,6 @@
 package EshopGui.domain;
 
-public class Product {
+public class Product implements HasPrice{
     private String name;
     private String description;
     private String image;
