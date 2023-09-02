@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import EshopDB.orm.entities.Product;
-import EshopDB.orm.repository.Repository;
 
 public class ProductRepository extends Repository {
 
@@ -20,7 +19,7 @@ public class ProductRepository extends Repository {
         return instance;
     }
 
-    public void create(Product product) {
+    public void insert(Product product) {
         try (Statement st = conn.createStatement()) {
             st.executeUpdate("INSERT INTO products VALUES("
                     + product.getId() + ", '"
