@@ -12,7 +12,7 @@ import EshopDB.orm.repositories.ProductRepository;
 public class App {
     public static void main(String[] args) throws SQLException {
         ProductRepository pr = ProductRepository.getInstance();
-        Product product = new Product(1, "Test", "img.jpg");
+        Product product = new Product(1, "Test1", "img.jpg");
         pr.insert(product);
         product.setName("Test2");
         product.setId(2);

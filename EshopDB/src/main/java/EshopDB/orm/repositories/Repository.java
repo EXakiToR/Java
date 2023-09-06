@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public abstract class Repository {
-    private final String url = "jdbc:postgresql://localhost/eshop?user=postgres&password=postgres&ssl=false";
+    private final String url = "jdbc:postgresql://localhost:5433/eshop?user=postgres&password=postgres&ssl=false";
     protected Connection conn;
 
     public Repository() {
