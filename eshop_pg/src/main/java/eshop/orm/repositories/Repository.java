@@ -12,7 +12,7 @@ import eshop.orm.entities.Entity;
 public abstract class Repository<T extends Entity> extends Entity{
     private final String url = "jdbc:postgresql://localhost:5433/eshop?user=postgres&password=postgres&ssl=false";
     protected Connection conn;
-    //Abstract logic for Entities in data needed, only time footprints present
+    //Abstract logic for Entities in data base needed, only time footprints present
     public Repository() {
         try {
             conn = DriverManager.getConnection(url);
