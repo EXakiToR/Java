@@ -33,7 +33,7 @@ public abstract class Repository<T extends Entity> extends Entity{
         }
     }
 
-    public void read(UUID uuid) {
+    public T read(UUID uuid) {
         
         try (Statement st = conn.createStatement()) {
             st.executeUpdate("UPDATE entities SET read_time = '"
@@ -43,6 +43,8 @@ public abstract class Repository<T extends Entity> extends Entity{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        //FIXME: return the actual type somehow
+        return null;
     }
 
     public void update(T entity) {
