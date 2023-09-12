@@ -31,19 +31,21 @@ public abstract class Repository<T extends Entity> extends Entity{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        entity.setCreatedAt(LocalDateTime.now());
     }
 
-    public T read(UUID uuid) {
+    public T read(T entity) {
         
         try (Statement st = conn.createStatement()) {
             st.executeUpdate("UPDATE entities SET read_time = '"
                     + LocalDateTime.now() + "' WHERE uuid = '"
-                    + uuid + "'");
+                    + entity.getUuid() + "'");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         //FIXME: return the actual type somehow
+        entity.setReadAt(LocalDateTime.now());
         return null;
     }
 
@@ -56,16 +58,18 @@ public abstract class Repository<T extends Entity> extends Entity{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        entity.setUpdatedAt(LocalDateTime.now());
     }
 
-    public void delete(UUID uuid) {
+    public void delete(T entity) {
         try (Statement st = conn.createStatement()) {
             st.executeUpdate("UPDATE entities SET delete_time = '"
                     + LocalDateTime.now() + "' WHERE uuid = '"
-                    + uuid + "'");
+                    + entity.getUuid() + "'");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        entity.setDeletedAt(LocalDateTime.now());
     }
 }

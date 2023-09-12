@@ -14,11 +14,11 @@ public class App {
         // Create a new entity
         DummyEntity entity1 = new DummyEntity("Entity 1");
         dummyRepository.create(entity1);
-
-        dummyRepository.read(entity1.getUuid());
+        
+        dummyRepository.read(entity1);
 
         dummyRepository.update(entity1);
 
-        dummyRepository.delete(entity1.getUuid());
+        dummyRepository.delete(entity1);
     }
 }
