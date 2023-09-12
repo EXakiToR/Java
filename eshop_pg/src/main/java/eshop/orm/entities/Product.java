@@ -1,6 +1,6 @@
 package eshop.orm.entities;
 
-public class Product {
+public class Product extends Entity{
     private int id;
     private String name, image;
     public Product(int id, String name, String image) {

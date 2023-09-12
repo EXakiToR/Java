@@ -8,7 +8,7 @@ import java.util.List;
 
 import eshop.orm.entities.Product;
 
-public class ProductRepository extends Repository {
+public class ProductRepository extends Repository<Product> {
 
     private static ProductRepository instance;
 

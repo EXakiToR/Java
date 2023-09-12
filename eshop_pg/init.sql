@@ -1,14 +1,18 @@
-CREATE TABLE currencies
-(
+CREATE TABLE currencies(
     num_code smallint,
     name character varying(30),
     char_code character varying(4),
     rate numeric(12,4)
 );
-CREATE TABLE products
-(
+CREATE TABLE products(
     id integer PRIMARY KEY,
     name character varying(100),
     image character varying(200)
 );
-CREATE TABLE test();
+CREATE TABLE entities(
+    uuid varchar(100) PRIMARY KEY,
+    create_time varchar(100),
+    read_time varchar(100),
+    update_time varchar(100),
+    delete_time varchar(100)    
+);
