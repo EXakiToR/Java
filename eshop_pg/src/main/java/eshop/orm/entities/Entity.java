@@ -4,42 +4,52 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public abstract class Entity {
-    private UUID uuid;
-    private LocalDateTime createdAt, readAt, updatedAt, deletedAt;
+    private String uuid;
+    private String createdAt, readAt, updatedAt, deletedAt;
     public Entity() {
-        this.uuid = UUID.randomUUID();
-        this.createdAt = LocalDateTime.now();
+        this.uuid = UUID.randomUUID().toString();
+        this.createdAt = LocalDateTime.now().toString();
     }
     
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
-    public LocalDateTime getReadAt() {
+    public String getReadAt() {
         return readAt;
     }
-    public void setReadAt(LocalDateTime readAt) {
+    public void setReadAt(String readAt) {
         this.readAt = readAt;
     }
-    public LocalDateTime getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
-    public void setUpdatedAt(LocalDateTime updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
-    public LocalDateTime getDeletedAt() {
+    public String getDeletedAt() {
         return deletedAt;
     }
-    public void setDeletedAt(LocalDateTime deletedAt) {
+    public void setDeletedAt(String deletedAt) {
         this.deletedAt = deletedAt;
     }
 
-    public UUID getUuid() {
+    public String getUuid() {
         return uuid;
     }
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    @Override
+    public String toString() {
+        return "Entity [uuid=" + uuid + ", createdAt=" + createdAt + ", readAt=" + readAt + ", updatedAt=" + updatedAt
+                + ", deletedAt=" + deletedAt + "]";
+    }
+
     
     
 

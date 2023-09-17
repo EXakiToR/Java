@@ -32,7 +32,7 @@ public class Product extends Entity{
     }
     @Override
     public String toString() {
-        return "Product [id=" + id + ", name=" + name + ", image=" + image + "]";
+        return super.toString() + ", Product [id=" + id + ", name=" + name + ", image=" + image + "]";
     }
 
     
