@@ -12,6 +12,7 @@ public class App {
         DummyRepository dr = new DummyRepository();
         DummyEntity de = new DummyEntity("Testing dummy repository with dummy entity.");
         dr.create(de);
+        System.out.println(dr.read(de.getUuid()));
         // System.out.println(dr.read(de.getUuid()));
         // de.setName("Testing dummy repository with UPDATED dummy entity.");
         // dr.update(de);

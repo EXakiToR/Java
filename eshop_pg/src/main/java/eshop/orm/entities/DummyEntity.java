@@ -21,6 +21,6 @@ public class DummyEntity extends Entity{
     
     @Override
     public String toString() {
-        return super.toString() + ", DummyEntity [name=" + name + "]";
+        return super.toString() + "\nDummyEntity [name=" + name + "]";
     }
 }

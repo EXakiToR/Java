@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
-
+import static eshop.util.NamingConventionTransformer.*;
 import eshop.orm.entities.Entity;
 
 public abstract class Repository<T extends Entity> {
@@ -28,7 +28,7 @@ public abstract class Repository<T extends Entity> {
         try (Statement st = conn.createStatement()) {
             st.executeUpdate("INSERT INTO entity VALUES('"
                     + entity.getUuid() + "', '"
-                    + entity.getClass().getSimpleName() + "', '"
+                    + pascalFromSnake(entity.getClassSimpleName()) + "', '"
                     + entity.getCreatedAt() + "', NULL, NULL, NULL)");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -37,7 +37,7 @@ public abstract class Repository<T extends Entity> {
         entity.setCreatedAt(LocalDateTime.now().toString());
     }
 
-    public T read(T entity) {
+    protected T read(T entity) {
         try (Statement st = conn.createStatement()) {
             st.executeUpdate("UPDATE entity SET read_at = '"
                     + LocalDateTime.now().toString() + "' WHERE uuid = '"
@@ -73,27 +73,28 @@ public abstract class Repository<T extends Entity> {
         }
         entity.setDeletedAt(LocalDateTime.now().toString());
     }
-    //TODO: Not so usable for current code.
-    protected String execAllStartsWithMethodsPsql(T object, String startsWith) {
+
+    // TODO: Not so usable for current code.
+    protected String execAllGetterMethodsForPsql(T object) {
         Class<? extends Entity> objectClass = object.getClass();
         Method[] methods = objectClass.getDeclaredMethods();
         String psql = "";
         for (Method method : methods) {
-            if (method.getName().startsWith(startsWith) && method.getParameterCount() == 0) {
-                System.out.println(objectClass.getSimpleName());
-                try {
-                    //BUG: Why tf it doesn't work? There are litterary no arguments to pass in getter.
-                    psql += ", '" + method.invoke(object) + "'";
-                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            } else {
-                try {
-                    psql += ", " + method.invoke(object);
-                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+            if (method.getName().startsWith("get")) {
+                if (method.getReturnType().getSimpleName().equals("String")) {
+                    try {
+                        psql += ", '" + method.invoke(object) + "'";
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        psql += ", " + method.invoke(object);
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
                 }
             }
         }
